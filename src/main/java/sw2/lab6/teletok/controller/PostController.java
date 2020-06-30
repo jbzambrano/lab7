@@ -74,8 +74,7 @@ public class PostController {
     @PostMapping(value="/ws/post/comment",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity comentarPost(@RequestParam(value = "token", required = true) String token,
                                        @RequestParam(value = "postId", required = true) int postId,
-                                       @RequestParam(value = "message", required = true) String message,
-                                       @ResponseBody PostComment postComment){
+                                       @RequestParam(value = "message", required = true) String message){
 
         HashMap<String, Object> responseMap = new HashMap<>();
 
@@ -90,10 +89,10 @@ public class PostController {
 
         if (tokenValidacion.isPresent()){
             if(postRepository.existsById(postId)){
-                responseMap.put("status", "COMMENT_CREATED");
-                responseMap.put("commentId", post.getId());
                 postCommentValidacion.setMessage(message);
                 postCommentRepository.save(postCommentValidacion);
+                responseMap.put("status", "COMMENT_CREATED");
+                responseMap.put("commentId", post.getId());
                 return new ResponseEntity(responseMap, HttpStatus.OK);
             }else{
                 responseMap.put("error","POST_NOT_FOUND");
@@ -127,6 +126,7 @@ public class PostController {
                     responseMap.put("error","LIKE_ALREADY_EXISTS");
                     return new ResponseEntity(responseMap, HttpStatus.NOT_FOUND);
                 }else {
+                    postLikeRepository.save(postLike);
                     responseMap.put("status", "LIKE_CREATED");
                     responseMap.put("likeId", postLike.getId());
                     return new ResponseEntity(responseMap, HttpStatus.OK);
