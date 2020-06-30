@@ -2,6 +2,8 @@ package sw2.lab6.teletok.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,12 +12,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import sw2.lab6.teletok.entity.Respuesta;
 import sw2.lab6.teletok.entity.User;
 import sw2.lab6.teletok.repository.UserRepository;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.awt.*;
+import java.util.HashMap;
 
 @Controller
 public class UserController {
@@ -33,6 +39,10 @@ public class UserController {
         User user = userRepository.findByUsername(auth.getName());
         session.setAttribute("user", user);
         return "redirect:/";
+
+
+
+
     }
 
     @GetMapping("/user/signUp")
@@ -59,4 +69,10 @@ public class UserController {
             }
         }
     }
+
+
+
+
+
+
 }
