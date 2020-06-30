@@ -33,6 +33,10 @@ public class UserController {
         User user = userRepository.findByUsername(auth.getName());
         session.setAttribute("user", user);
         return "redirect:/";
+
+
+
+
     }
 
     @GetMapping("/user/signUp")
@@ -59,4 +63,8 @@ public class UserController {
             }
         }
     }
+
+
+
+
 }
