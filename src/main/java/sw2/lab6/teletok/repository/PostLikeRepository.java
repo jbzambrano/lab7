@@ -6,4 +6,7 @@ import sw2.lab6.teletok.entity.PostLike;
 
 @Repository
 public interface PostLikeRepository extends JpaRepository<PostLike, Integer> {
+
+
+    public PostLike findByPostId(int postid);
 }
