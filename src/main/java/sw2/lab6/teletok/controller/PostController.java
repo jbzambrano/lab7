@@ -1,9 +1,7 @@
 package sw2.lab6.teletok.controller;
 
-<<<<<<< HEAD
-=======
+
 import net.bytebuddy.implementation.auxiliary.AuxiliaryType;
->>>>>>> a7ee0db52e520fd5861a1acc99d818e01a1f8ade
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,12 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sw2.lab6.teletok.entity.Post;
-<<<<<<< HEAD
 import sw2.lab6.teletok.repository.PostRepository;
 
 import java.util.HashMap;
 import java.util.List;
-=======
 import sw2.lab6.teletok.entity.PostComment;
 import sw2.lab6.teletok.entity.PostLike;
 import sw2.lab6.teletok.entity.Token;
@@ -26,21 +22,16 @@ import sw2.lab6.teletok.repository.PostRepository;
 import sw2.lab6.teletok.repository.TokenRepository;
 
 import java.util.HashMap;
->>>>>>> a7ee0db52e520fd5861a1acc99d818e01a1f8ade
 import java.util.Optional;
 
 @Controller
 public class PostController {
 
     @Autowired
-<<<<<<< HEAD
     PostRepository postRepository;
 
-=======
     TokenRepository tokenRepository;
 
-    @Autowired
-    PostRepository postRepository;
 
     @Autowired
     PostCommentRepository postCommentRepository;
@@ -48,7 +39,6 @@ public class PostController {
     @Autowired
     PostLikeRepository postLikeRepository;
 
->>>>>>> a7ee0db52e520fd5861a1acc99d818e01a1f8ade
     @GetMapping(value = {"", "/"})
     public String listPost(){
         return "post/list";
@@ -113,7 +103,6 @@ public class PostController {
 
 
     @ResponseBody
-<<<<<<< HEAD
     @GetMapping(value = "/product/list",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity obtenerProductos(@RequestParam("query") String query){
 
@@ -148,7 +137,6 @@ public class PostController {
             }
         }
     }
-=======
     @PostMapping(value="/ws/post/comment",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity comentarPost(@RequestParam(value = "token", required = true) String token,
                                        @RequestParam(value = "postId", required = true) int postId,
@@ -219,6 +207,4 @@ public class PostController {
         }
 
     }
-
->>>>>>> a7ee0db52e520fd5861a1acc99d818e01a1f8ade
 }
