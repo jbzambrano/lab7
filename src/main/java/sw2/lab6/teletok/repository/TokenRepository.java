@@ -8,6 +8,6 @@ import sw2.lab6.teletok.entity.User;
 
 @Repository
 public interface TokenRepository extends JpaRepository<Token, Integer> {
-    public User findByCode(String code);
+    public Token findByCode(String code);
 
 }
