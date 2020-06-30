@@ -60,7 +60,7 @@ public class PostController {
     }
 
     @ResponseBody
-    @GetMapping("/post/{id}}")
+    @GetMapping("ws/post/{id}}")
     public ResponseEntity viewPost(@PathVariable("id") String idStr,
                            @RequestParam(value = "token",required = false) String tok) {
 
@@ -103,7 +103,7 @@ public class PostController {
 
 
     @ResponseBody
-    @GetMapping(value = "/product/list",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/ws/post/list",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity obtenerProductos(@RequestParam("query") String query){
 
         HashMap<String,Object> hashMap = new HashMap<>();
